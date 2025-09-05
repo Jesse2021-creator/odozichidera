@@ -1,6 +1,27 @@
 document.getElementById("year").textContent = new Date().getFullYear();
 
+    const images = document.querySelectorAll(".project-img");
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    const closeBtn = document.getElementById("closeModal");
 
+    images.forEach(img => {
+      img.addEventListener("click", () => {
+        modal.classList.remove("hidden"); // show modal
+        modalImg.src = img.src;
+      });
+    });
+
+    closeBtn.addEventListener("click", () => {
+      modal.classList.add("hidden"); // hide modal
+    });
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.classList.add("hidden");
+      }
+    });
+    
     const fixedHeader = document.getElementById('fixed-header');
 
     window.addEventListener('scroll', () => {

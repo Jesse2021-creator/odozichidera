@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Projects | Odozi Chidera</title>
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
+
   <!-- Satoshi Font -->
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
 
@@ -61,11 +64,7 @@
 
       <!-- Nav Links -->
       <ul class="desktop-nav absolute left-1/2 transform -translate-x-1/2 hidden lg:flex gap-10">
-        <li><a href="#hero" class="nav-link">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#services" class="nav-link">Services</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="index.html" class="nav-link">Home</a></li>
       </ul>
 
       <!-- Hire Me Button -->
@@ -90,28 +89,8 @@
       </div>
       <ul class="desktop-nav flex gap-10 items-center">
         <li>
-          <a href="#hero" class="nav-link flex items-center">
+          <a href="index.html" class="nav-link flex items-center">
             Home
-          </a>
-        </li>
-        <li>
-          <a href="#about" class="nav-link flex items-center">
-            About
-          </a>
-        </li>
-        <li>
-          <a href="#projects" class="nav-link flex items-center">
-            Projects
-          </a>
-        </li>
-        <li>
-          <a href="#services" class="nav-link flex items-center">
-            Services
-          </a>
-        </li>
-        <li>
-          <a href="#contact" class="nav-link flex items-center">
-            Contact
           </a>
         </li>
       </ul>
@@ -167,14 +146,14 @@
   <div class="fixed top-1/2 right-6 -translate-y-1/2 flex flex-col space-y-4 z-50 hidden md:flex social-links-sidebar"
     aria-label="Social Links">
     <!-- Facebook -->
-    <a href="https://facebook.com" target="_blank"
+    <a href="https://web.facebook.com/people/Odozi-Chidera/100006325875952/" target="_blank"
       class="w-10 h-10 text-white hover:text-[#1877F2] flex items-center justify-center transition-all duration-300"
       aria-label="Facebook">
       <i class="fa-brands fa-facebook-f text-xl"></i>
     </a>
 
     <!-- X (Twitter) -->
-    <a href="https://x.com" target="_blank"
+    <a href="https://x.com/jessewontmiss?s=21" target="_blank"
       class="w-10 h-10 text-white hover:text-white flex items-center justify-center transition-all duration-300"
       aria-label="X (Twitter)">
       <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -184,14 +163,14 @@
     </a>
 
     <!-- Instagram -->
-    <a href="https://instagram.com" target="_blank"
+    <a href="https://www.instagram.com/odoziiii?igsh=cTlyc2Y2Y2IydWE4&utm_source=qr" target="_blank"
       class="w-10 h-10 text-white hover:text-pink-500 flex items-center justify-center transition-all duration-300"
       aria-label="Instagram">
       <i class="fa-brands fa-instagram text-xl"></i>
     </a>
 
     <!-- LinkedIn -->
-    <a href="https://linkedin.com" target="_blank"
+    <a href="www.linkedin.com/in/chidera-jesse" target="_blank"
       class="w-10 h-10 text-white hover:text-[#0077B5] flex items-center justify-center transition-all duration-300"
       aria-label="LinkedIn">
       <i class="fa-brands fa-linkedin-in text-xl"></i>
@@ -219,55 +198,81 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
         <!-- Project Card 1 -->
         <div class="bs-card p-6 project-card rounded-2xl hover:scale-[1.03] transition-all duration-300 group">
-          <div class="h-44 w-full bg-cover bg-center rounded-lg mb-4"
-            style="background-image: url('./assets/img/project1.png');"></div>
-          <h3 class="text-xl font-semibold mb-2 group-hover:text-gray-300">News Website</h3>
-          <p class="text-gray-400 text-sm mb-3">A smooth online store with product filters, cart functionality, and
-            animations.</p>
-          <div class="bs-card-sm flex gap-2 text-sm mb-4 flex-wrap">
-            <span class="bg-gray-700/40 px-2 py-1 rounded">Tailwind</span>
-            <span class="bg-gray-700/40 px-2 py-1 rounded">JavaScript</span>
-            <span class="bg-gray-700/40 px-2 py-1 rounded">Laravel</span>
+          <div class="h-44 w-full rounded-lg mb-4 overflow-hidden">
+            <img src="./assets/img/project1.png" alt="News Website"
+              class="w-full h-full object-cover cursor-pointer project-img">
           </div>
-          <div class="mt-6 self-start project-footer">
-            <span class="project-arrow">➤</span>
-            <span class="project-label">View Project</span>
+
+          <h3 class="text-xl font-semibold mb-2 group-hover:text-gray-300">News Website</h3>
+          <p class="text-gray-400 text-sm mb-3">A dynamic news platform with categories, search functionality, and an
+            easy-to-read responsive layout.</p>
+          <div class="bs-card-sm flex gap-2 text-sm mb-4 flex-wrap">
+            <span class="bg-gray-700/40 px-2 py-1 rounded">HTML</span>
+            <span class="bg-gray-700/40 px-2 py-1 rounded">JavaScript</span>
+            <span class="bg-gray-700/40 px-2 py-1 rounded">CSS</span>
+            <span class="bg-gray-700/40 px-2 py-1 rounded">PHP</span>
           </div>
         </div>
 
         <!-- Project Card 2 -->
         <div class="bs-card p-6 project-card rounded-2xl hover:scale-[1.03] transition-all duration-300 group">
-          <div class="h-44 w-full bg-cover bg-center rounded-lg mb-4"
-            style="background-image: url('./assets/img/project2.png');"></div>
-          <h3 class="text-xl font-semibold mb-2 group-hover:text-gray-300">Portfolio Site</h3>
-          <p class="text-gray-400 text-sm mb-3">Personal portfolio with animations, responsive layout, and dynamic
-            content.</p>
-          <div class="bs-card-sm flex gap-2 text-sm mb-4 flex-wrap">
-            <span class="bg-gray-700/40 px-2 py-1 rounded">HTML</span>
-            <span class="bg-gray-700/40 px-2 py-1 rounded">CSS</span>
-            <span class="bg-gray-700/40 px-2 py-1 rounded">GSAP</span>
+          <div class="h-44 w-full rounded-lg mb-4 overflow-hidden">
+            <img src="./assets/img/project2.png" alt="News Website"
+              class="w-full h-full object-cover cursor-pointer project-img">
           </div>
-          <div class="mt-6 self-start project-footer">
-            <span class="project-arrow">➤</span>
-            <span class="project-label">View Project</span>
+
+          <h3 class="text-xl font-semibold mb-2 group-hover:text-gray-300">Online Store</h3>
+          <p class="text-gray-400 text-sm mb-3"> A fully functional e-commerce website with product listings, shopping
+            cart, and secure checkout.</p>
+          <div class="bs-card-sm flex gap-2 text-sm mb-4 flex-wrap">
+            <span class="bg-gray-700/40 px-2 py-1 rounded">WordPress</span>
+            <span class="bg-gray-700/40 px-2 py-1 rounded">WooCommerce</span>
           </div>
         </div>
 
         <!-- Project Card 3 -->
         <div class="bs-card p-6 project-card rounded-2xl hover:scale-[1.03] transition-all duration-300 group">
-          <div class="h-44 w-full bg-cover bg-center rounded-lg mb-4"
-            style="background-image: url('./assets/img/temp3.avif');"></div>
-          <h3 class="text-xl font-semibold mb-2 group-hover:text-gray-300">Blog Platform</h3>
-          <p class="text-gray-400 text-sm mb-3">A modern blog CMS with categories, rich editor, and dark/light modes.
+          <div class="h-44 w-full rounded-lg mb-4 overflow-hidden">
+            <img src="./assets/img/project3.png" alt="News Website"
+              class="w-full h-full object-cover cursor-pointer project-img">
+          </div>
+
+          <h3 class="text-xl font-semibold mb-2 group-hover:text-gray-300">Subscription Website</h3>
+          <p class="text-gray-400 text-sm mb-3">A secure subscription-based platform with user authentication, payment
+            integration, and automated plan management.
           </p>
           <div class="bs-card-sm flex gap-2 text-sm mb-4 flex-wrap">
+            <span class="bg-gray-700/40 px-2 py-1 rounded">React</span>
             <span class="bg-gray-700/40 px-2 py-1 rounded">PHP</span>
-            <span class="bg-gray-700/40 px-2 py-1 rounded">MySQL</span>
-            <span class="bg-gray-700/40 px-2 py-1 rounded">Alpine.js</span>
+            <span class="bg-gray-700/40 px-2 py-1 rounded">HTML</span>
+            <span class="bg-gray-700/40 px-2 py-1 rounded">CSS</span>
           </div>
-          <div class="mt-6 self-start project-footer">
-            <span class="project-arrow">➤</span>
-            <span class="project-label">View Project</span>
+        </div>
+
+        <div class="bs-card p-6 project-card rounded-2xl hover:scale-[1.03] transition-all duration-300 group">
+          <div class="h-44 w-full bg-cover bg-center rounded-lg mb-4"
+            style="background-image: url('./assets/img/currenttribune.png');"></div>
+          <h3 class="text-xl font-semibold mb-2 group-hover:text-gray-300">Logo</h3>
+          <div class="bs-card-sm flex gap-2 text-sm mb-4 flex-wrap">
+            <span class="bg-gray-700/40 px-2 py-1 rounded">Canva</span>
+          </div>
+        </div>
+
+        <div class="bs-card p-6 project-card rounded-2xl hover:scale-[1.03] transition-all duration-300 group">
+          <div class="h-44 w-full bg-cover bg-center rounded-lg mb-4"
+            style="background-image: url('./assets/img/wgc.png');"></div>
+          <h3 class="text-xl font-semibold mb-2 group-hover:text-gray-300">Logo</h3>
+          <div class="bs-card-sm flex gap-2 text-sm mb-4 flex-wrap">
+            <span class="bg-gray-700/40 px-2 py-1 rounded">Canva</span>
+          </div>
+        </div>
+
+        <div class="bs-card p-6 project-card rounded-2xl hover:scale-[1.03] transition-all duration-300 group">
+          <div class="h-44 w-full bg-cover bg-center rounded-lg mb-4"
+            style="background-image: url('./assets/img/lazypanda.png');"></div>
+          <h3 class="text-xl font-semibold mb-2 group-hover:text-gray-300">Logo</h3>
+          <div class="bs-card-sm flex gap-2 text-sm mb-4 flex-wrap">
+            <span class="bg-gray-700/40 px-2 py-1 rounded">Canva</span>
           </div>
         </div>
 
@@ -276,78 +281,15 @@
 
       <div class="divider" style="margin: 100px auto;"></div>
 
-      <div class="max-w-6xl mx-auto">
-        <div class="text-center mb-16">
-          <h2 class="text-5xl font-bold mb-4">Future Projects</h2>
-          <p class="text-gray-400 text-lg max-w-xl mx-auto">
-            Explore my complete collection of handcrafted websites, apps, and creative experiments.
-          </p>
-        </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-          <!-- Project Card 1 -->
-          <div class="bs-card p-6 project-card rounded-2xl hover:scale-[1.03] transition-all duration-300 group">
-            <div class="h-44 w-full bg-cover bg-center rounded-lg mb-4"
-              style="background-image: url('./assets/img/project1.png');"></div>
-            <h3 class="text-xl font-semibold mb-2 group-hover:text-gray-300">News Website</h3>
-            <p class="text-gray-400 text-sm mb-3">A smooth online store with product filters, cart functionality, and
-              animations.</p>
-            <div class="bs-card-sm flex gap-2 text-sm mb-4 flex-wrap">
-              <span class="bg-gray-700/40 px-2 py-1 rounded">HTML</span>
-              <span class="bg-gray-700/40 px-2 py-1 rounded">CSS</span>
-              <span class="bg-gray-700/40 px-2 py-1 rounded">JavaScript</span>
-              <span class="bg-gray-700/40 px-2 py-1 rounded">PHP</span>
-            </div>
-            <div class="mt-6 self-start project-footer">
-              <span class="project-arrow">➤</span>
-              <span class="project-label">View Project</span>
-            </div>
-          </div>
 
-          <!-- Project Card 2 -->
-          <div class="bs-card p-6 project-card rounded-2xl hover:scale-[1.03] transition-all duration-300 group">
-            <div class="h-44 w-full bg-cover bg-center rounded-lg mb-4"
-              style="background-image: url('./assets/img/project2.png');"></div>
-            <h3 class="text-xl font-semibold mb-2 group-hover:text-gray-300">Online Store</h3>
-            <p class="text-gray-400 text-sm mb-3">Personal portfolio with animations, responsive layout, and dynamic
-              content.</p>
-            <div class="bs-card-sm flex gap-2 text-sm mb-4 flex-wrap">
-              <span class="bg-gray-700/40 px-2 py-1 rounded">WordPress</span>
-            </div>
-            <div class="mt-6 self-start project-footer">
-              <span class="project-arrow">➤</span>
-              <span class="project-label">View Project</span>
-            </div>
-          </div>
-
-          <!-- Project Card 3 -->
-          <div class="bs-card p-6 project-card rounded-2xl hover:scale-[1.03] transition-all duration-300 group">
-            <div class="h-44 w-full bg-cover bg-center rounded-lg mb-4"
-              style="background-image: url('./assets/img/project3.png');"></div>
-            <h3 class="text-xl font-semibold mb-2 group-hover:text-gray-300">Blog Platform</h3>
-            <p class="text-gray-400 text-sm mb-3">A modern blog CMS with categories, rich editor, and dark/light modes.
-            </p>
-            <div class="bs-card-sm flex gap-2 text-sm mb-4 flex-wrap">
-              <span class="bg-gray-700/40 px-2 py-1 rounded">PHP</span>
-              <span class="bg-gray-700/40 px-2 py-1 rounded">MySQL</span>
-              <span class="bg-gray-700/40 px-2 py-1 rounded">Alpine.js</span>
-            </div>
-            <div class="mt-6 self-start project-footer">
-              <span class="project-arrow">➤</span>
-              <span class="project-label">View Project</span>
-            </div>
-          </div>
-
-          <!-- Add more cards as needed -->
-        </div>
-
-        <!-- Optional: Scroll to top -->
-        <div class="text-center mt-20">
-          <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
-            class="tag backdrop-blur-sm shadow-3d px-4 py-2 rounded-full text-sm text-gray-300 hover:scale-105 transition-transform duration-300">↑
-            Back to Top</button>
-        </div>
+      <!-- Scroll to top -->
+      <div class="text-center mt-20">
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+          class="tag backdrop-blur-sm shadow-3d px-4 py-2 rounded-full text-sm text-gray-300 hover:scale-105 transition-transform duration-300">↑
+          Back to Top</button>
       </div>
+    </div>
   </main>
 
   <!-- Footer -->
@@ -368,14 +310,14 @@
       <!-- Social Icons -->
       <div class="flex gap-4">
         <!-- Facebook -->
-        <a href="https://facebook.com" target="_blank"
+        <a href="https://web.facebook.com/people/Odozi-Chidera/100006325875952/" target="_blank"
           class="w-10 h-10 text-white hover:text-[#1877F2] flex items-center justify-center transition-all duration-300"
           aria-label="Facebook">
           <i class="fa-brands fa-facebook-f text-xl"></i>
         </a>
 
         <!-- X (Twitter) -->
-        <a href="https://x.com" target="_blank"
+        <a href="https://x.com/jessewontmiss?s=21" target="_blank"
           class="w-10 h-10 text-white hover:text-white flex items-center justify-center transition-all duration-300"
           aria-label="X (Twitter)">
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -385,14 +327,14 @@
         </a>
 
         <!-- Instagram -->
-        <a href="https://instagram.com" target="_blank"
+        <a href="https://www.instagram.com/odoziiii?igsh=cTlyc2Y2Y2IydWE4&utm_source=qr" target="_blank"
           class="w-10 h-10 text-white hover:text-pink-500 flex items-center justify-center transition-all duration-300"
           aria-label="Instagram">
           <i class="fa-brands fa-instagram text-xl"></i>
         </a>
 
         <!-- LinkedIn -->
-        <a href="https://linkedin.com" target="_blank"
+        <a href="www.linkedin.com/in/chidera-jesse" target="_blank"
           class="w-10 h-10 text-white hover:text-[#0077B5] flex items-center justify-center transition-all duration-300"
           aria-label="LinkedIn">
           <i class="fa-brands fa-linkedin-in text-xl"></i>
@@ -402,8 +344,10 @@
 
     <!-- Bottom Line -->
     <div class="mt-8 text-center text-sm text-white/50">
-      © <span id="year"></span> Odozi Chidera. All rights reserved.
+      © <span id="year"></span> Odozi Chidera. All rights reserved.<br />
+      Designed & developed by Odozi Chidera.
     </div>
+
 
 
   </footer>
@@ -411,6 +355,13 @@
 
   </main>
   <div class="bottom-blur"></div>
+  <!-- Image Modal -->
+  <div id="imageModal" class="fixed inset-0 bg-black/90 hidden flex items-center justify-center z-[9999]">
+    <span id="closeModal" class="absolute top-6 right-8 text-white text-3xl cursor-pointer">&times;</span>
+    <img id="modalImage" src="" class="max-h-[90%] max-w-[90%] rounded-lg shadow-lg">
+  </div>
+
+
   <!-- Scripts -->
   <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
   <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
@@ -424,7 +375,9 @@
   <script>
 
     lucide.createIcons();
+
   </script>
+
 
 </body>
 
