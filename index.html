@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Creative Portfolio</title>
+
+  <!-- Work Sans Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+
+<body class="bg-black text-white relative font-sans overflow-x-hidden scroll-smooth">
+
+  <!-- Loading Screen -->
+  <div id="loading-screen" class="loading-screen">
+    <div class="loading-text-wrapper">
+      <h1 id="loading-text" class="loading-text">Odozi Chidera</h1>
+    </div>
+  </div>
+
+
+  <!-- Custom Cursor -->
+  <div id="cursor"></div>
+  <div id="scroll-bar" class="fixed top-0 left-0 w-1 bg-indigo-500 z-[9999]"></div>
+
+  <!-- Background glow animation -->
+  <div class="absolute inset-0 z-0">
+    <canvas id="particles" class="fixed top-0 left-0 w-screen h-screen z-[-1]"
+      style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;"></canvas>
+
+  </div>
+
+  <!-- Header -->
+  <header id="header" class="fixed top-0 left-0 z-50 w-full">
+
+    <nav class="relative container mx-auto flex items-center justify-center py-4 px-6">
+
+      <!-- Logo & Burger -->
+      <div class="absolute left-6 top-1/2 -translate-y-1/2 flex items-center gap-4 z-50">
+
+        <div id="burger" class="cursor-pointer" aria-label="Toggle menu" role="button" tabindex="0">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+        <div
+          class="text-white text-xl font-bold bg-white/10 px-3 py-1 rounded-full border border-white/20 backdrop-blur"
+          style="background-color: rgba(15, 16, 16, 0.9);">
+          OC
+        </div>
+      </div>
+
+
+
+      <!-- Nav Links -->
+      <ul class="desktop-nav absolute left-1/2 transform -translate-x-1/2 hidden lg:flex gap-10">
+        <li><a href="#hero" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <!-- Hire Me Button -->
+      <button id="hireMeBtn"
+        class="absolute right-6 top-1/2 -translate-y-1/2 flex items-center gap-2 px-4 py-2 rounded-full border border-transparent transition-all duration-300">
+        <span class="relative flex items-center gap-3">
+          <!-- Active dot -->
+          <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+          <span>Hire me</span>
+        </span>
+      </button>
+
+    </nav>
+  </header>
+
+  <!-- Slide-down Fixed Header -->
+  <header id="fixed-header" class="hidden lg:block">
+    <nav class="container mx-auto flex justify-between items-center py-3 px-6">
+      <div class="text-white text-xl font-bold bg-white/10 px-3 py-1 rounded-full border border-white/20 backdrop-blur"
+        style="background-color: rgba(15, 16, 16, 0.9);">
+        OC
+      </div>
+      <ul class="desktop-nav flex gap-10 items-center">
+        <li>
+          <a href="#hero" class="nav-link flex items-center">
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="#about" class="nav-link flex items-center">
+            About
+          </a>
+        </li>
+        <li>
+          <a href="#projects" class="nav-link flex items-center">
+            Projects
+          </a>
+        </li>
+        <li>
+          <a href="#services" class="nav-link flex items-center">
+            Services
+          </a>
+        </li>
+        <li>
+          <a href="#contact" class="nav-link flex items-center">
+            Contact
+          </a>
+        </li>
+      </ul>
+      <button id="hireMeBtn"
+        class="hire-me-btn flex items-center gap-2 px-4 py-2 rounded-full border border-transparent">
+        <span class="flex items-center gap-3">
+          <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+          <span>Hire me</span>
+        </span>
+      </button>
+    </nav>
+  </header>
+
+
+
+  <!-- Mobile Nav Panel -->
+  <div id="mobile-nav" aria-hidden="true" class="mobile-nav">
+    <nav class="flex flex-col gap-6 text-xl font-semibold text-center pt-20">
+      <a href="#hero" class="mobile-nav-link" aria-label="Home section">Home</a>
+      <a href="#projects" class="mobile-nav-link">Projects</a>
+      <a href="#contact" class="mobile-nav-link">Contact</a>
+    </nav>
+
+    <div class="social-links">
+      <a href="https://facebook.com" target="_blank" aria-label="Facebook" class="hover:text-[#1877F2]">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M22 12a10 10 0 10-11.6 9.87v-7h-2v-2.87h2v-2.2c0-2 1.2-3.13 3-3.13.87 0 1.78.15 1.78.15v2h-1c-1 0-1.31.63-1.31 1.26v1.9h2.22l-.35 2.87h-1.87v7A10 10 0 0022 12z" />
+        </svg>
+      </a>
+      <a href="https://x.com" target="_blank" aria-label="X (Twitter)" class="hover:text-white">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M20.99 4.34h-3.13l-4.01 4.85-4.24-4.85H2l7.59 8.9L2.29 21h3.12l4.07-4.91 4.3 4.91H22l-7.89-9.24L20.99 4.34z" />
+        </svg>
+      </a>
+      <a href="https://instagram.com" target="_blank" aria-label="Instagram" class="hover:text-pink-500">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9zm0 2c1.4 0 2.5 1.1 2.5 2.5S13.4 14.5 12 14.5 9.5 13.4 9.5 12 10.6 9.5 12 9.5zm4.8-.7a1 1 0 11-2 0 1 1 0 012 0z" />
+        </svg>
+      </a>
+      <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" class="hover:text-[#0077B5]">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M20 3A2 2 0 0122 5v14a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h16zM8.3 17V9.5H5.7V17h2.6zm-1.3-8.5a1.3 1.3 0 110-2.6 1.3 1.3 0 010 2.6zM18.3 17v-4.1c0-2.3-2.5-2.1-3.2-1v-1.4h-2.6c.1.9 0 7.5 0 7.5h2.6v-4.1c0-1.1 1.5-1.2 1.5 0V17h2.7z" />
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Social Links Sidebar -->
+  <div class="fixed top-1/2 right-6 -translate-y-1/2 flex flex-col space-y-4 z-50 hidden md:flex social-links-sidebar"
+    aria-label="Social Links">
+    <!-- Facebook -->
+    <a href="https://facebook.com" target="_blank"
+      class="w-10 h-10 text-white hover:text-[#1877F2] flex items-center justify-center transition-all duration-300"
+      aria-label="Facebook">
+      <i class="fa-brands fa-facebook-f text-xl"></i>
+    </a>
+
+    <!-- X (Twitter) -->
+    <a href="https://x.com" target="_blank"
+      class="w-10 h-10 text-white hover:text-white flex items-center justify-center transition-all duration-300"
+      aria-label="X (Twitter)">
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path
+          d="M20.99 4.34h-3.13l-4.01 4.85-4.24-4.85H2l7.59 8.9L2.29 21h3.12l4.07-4.91 4.3 4.91H22l-7.89-9.24L20.99 4.34z" />
+      </svg>
+    </a>
+
+    <!-- Instagram -->
+    <a href="https://instagram.com" target="_blank"
+      class="w-10 h-10 text-white hover:text-pink-500 flex items-center justify-center transition-all duration-300"
+      aria-label="Instagram">
+      <i class="fa-brands fa-instagram text-xl"></i>
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://linkedin.com" target="_blank"
+      class="w-10 h-10 text-white hover:text-[#0077B5] flex items-center justify-center transition-all duration-300"
+      aria-label="LinkedIn">
+      <i class="fa-brands fa-linkedin-in text-xl"></i>
+    </a>
+
+    <!-- Email -->
+    <a href="mailto:chiderajhesse55@gmail.com"
+      class="w-10 h-10 text-white hover:text-yellow-400 flex items-center justify-center transition-all duration-300"
+      aria-label="Email">
+      <i class="fa-solid fa-envelope text-xl"></i>
+    </a>
+  </div>
+
+
+  <main id="app">
+    <!-- Hero Section -->
+    <div id="heroContent"
+      class="opacity-0 translate-x-[-20px] transition-transform transition-opacity duration-1000 ease-out z-10 flex flex-col justify-center min-h-screen px-6 mx-auto text-center md:text-center will-change-transform">
+      <!-- Content -->
+      <!-- Hero Content -->
+      <div class="z-10 px-6 max-w-4xl mx-auto text-center md:text-center">
+        <div id="hero"
+          class="z-10 flex flex-col justify-start pt-32 min-h-screen px-6 max-w-4xl mx-auto text-center md:text-center">
+
+          <div
+            class="tag inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-sm text-white text-sm font-medium shadow-3d">
+            <div class="relative flex items-center gap-3">
+
+              <!-- Active dot -->
+              <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+              <div>
+                <span class="text-white/80">Web Designer</span>
+                <span class="text-white/80">&</span>
+                <span class="text-white/80">WordPress Developer</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="cursor-follow-container" class="relative overflow-hidden">
+            <h1 class="text-4xl md:text-7xl font-extrabold tracking-tight leading-tight mb-6 animate-slideUp">
+              <span id="cursor-follow-text"
+                class="block bg-gradient-to-r from-gray-300 via-white to-gray-500 text-transparent bg-clip-text animate-gradient-gray">
+                Odozi Chidera
+              </span>
+            </h1>
+          </div>
+
+
+
+          <p class="text-lg md:text-2xl text-slate-300" id="typed-text"></p>
+          <div class="mt-12 flex flex-col sm:flex-row justify-center items-center gap-4 text-center">
+            <a href="#projects"
+              class="px-6 py-3 rounded-full bt-card-2 text-black font-semibold bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 hover:bg-gray-100 hover:scale-105 transition-transform duration-300 shadow-md">
+              My Projects
+            </a>
+            <a href="#contact"
+              class="px-6 py-3 rounded-full bg-transparent border border-white text-white font-semibold hover:bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 hover:text-black hover:scale-105 transition-transform duration-300 shadow-md">
+              Contact Me
+            </a>
+          </div>
+
+
+        </div>
+      </div>
+
+      <!-- Scroll Down Indicator -->
+      <div
+        class="scroll-indicator absolute left-1/2 transform -translate-x-1/2 flex items-center align-center gap-4 z-10">
+        <!-- Left Line -->
+        <div class="flex items-center gap-2">
+          <span class="tracking-wider">Scroll down</span>
+          <div class="line h-px bg-white/50"></div>
+
+        </div>
+
+        <div class="flex flex-col items-center justify-center gap-1 animate-bounce text-white opacity-70">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+            <path d="M128 32a64 64 0 0 0-64 64v64a64 64 0 0 0 128 0V96a64 64 0 0 0-64-64Z" opacity="0.2" />
+            <path
+              d="M128 24a72.1 72.1 0 0 0-72 72v64a72 72 0 0 0 144 0V96a72.1 72.1 0 0 0-72-72Zm56 136a56 56 0 0 1-112 0V96a56 56 0 0 1 112 0Zm-56-80a8 8 0 0 0-8 8v40a8 8 0 0 0 16 0V88a8 8 0 0 0-8-8Z" />
+          </svg>
+
+        </div>
+
+        <!-- Right Line + See Projects -->
+        <div class="flex items-center gap-2">
+          <div class="line h-px bg-white/50"></div>
+          <span class="tracking-wider">to see projects</span>
+        </div>
+      </div>
+    </div>
+
+    </section>
+
+
+    <!-- About section -->
+    <section id="about"
+      class="hidden opacity-0 translate-y-10 transition-all duration-1000 ease-out relative z-20 min-h-screen bg-gray-900 text-white px-20 py-20 overflow-hidden">
+      <!-- Your about content here -->
+      <!-- Background Glow or Overlay -->
+      <div class="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none"></div>
+
+
+      <div class="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <!-- Left Text Column -->
+        <div class="space-y-6">
+          <h2 class="text-5xl font-bold text-white" style="font-family: 'Satoshi', sans-serif;">
+            Meet <span class="text-gray-400">Odozi</span>
+          </h2>
+          <p id="hoverText" class="relative cursor-pointer text-lg text-gray-300 leading-relaxed z-10"
+            onmousemove="checkRadius(event)" onmouseleave="hideCircle()" style="font-family: 'Satoshi', sans-serif;">
+            I'm a creative front-end developer with a passion for design, animation, and crafting unique digital
+            experiences. I love merging technology with aesthetics to build interactive and meaningful websites that
+            connect with users.
+          </p>
+          <div class="divider"></div>
+          <ul class="space-y-2">
+            <li class="fc flex items-center gap-3">
+              <span class="w-2 h-2 rounded-full bg-purple-500 animate-ping"></span>
+              <span class="text-gray-300">Front-End Development</span>
+            </li>
+            <li class="fc flex items-center gap-3">
+              <span class="w-2 h-2 rounded-full bg-pink-500 animate-ping"></span>
+              <span class="text-gray-300">WordPress</span>
+            </li>
+            <li class="fc flex items-center gap-3">
+              <span class="w-2 h-2 rounded-full bg-blue-500 animate-ping"></span>
+              <span class="text-gray-300">Creative UI/UX Design</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right Visual Column -->
+        <div class="flex flex-col items-center w-full">
+          <!-- Image with overlay -->
+          <div id="tiltShake" class="tilt-shake-container relative w-full h-[400px] rounded-3xl overflow-hidden">
+            <img src="./assets/img/me.jpg" alt="Odozi Chidera" class="object-cover w-full h-full rounded-3xl" />
+
+            <!-- Bottom center overlay -->
+            <div
+              class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-sm text-white px-4 py-2 rounded-full flex items-center space-x-2 shadow-lg">
+              <span class="relative flex h-3 w-3">
+                <span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+              </span>
+              <span class="font-medium">Available for Hire</span>
+            </div>
+          </div>
+
+          <!-- 👇 Social Links BELOW the image 👇 -->
+          <div class="about-me-socials flex justify-center mt-4 space-x-6 text-white">
+            <!-- Twitter/X -->
+            <a href="https://twitter.com/yourusername" target="_blank" aria-label="Twitter/X"
+              class="hover:text-indigo-400 transition-transform hover:scale-110" style="align-content: center;">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M20.99 4.34h-3.13l-4.01 4.85-4.24-4.85H2l7.59 8.9L2.29 21h3.12l4.07-4.91 4.3 4.91H22l-7.89-9.24L20.99 4.34z" />
+              </svg>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://instagram.com/yourusername" target="_blank" aria-label="Instagram"
+              class="hover:text-indigo-400 transition-transform hover:scale-110">
+              <i class="fa-brands fa-instagram text-xl"></i>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn"
+              class="hover:text-indigo-400 transition-transform hover:scale-110">
+              <i class="fa-brands fa-linkedin-in text-xl"></i>
+            </a>
+          </div>
+
+        </div>
+
+
+      </div>
+
+      <!-- Big circle that follows the cursor -->
+      <div id="circle"
+        class="pointer-events-none fixed rounded-full bg-purple-500 opacity-40 mix-blend-screen blur-3xl transition-opacity duration-300"
+        style="width: 200px; height: 200px; display: none; top: 0; left: 0; transform: translate(-50%, -50%); z-index: 0;">
+      </div>
+      </div>
+      </div>
+    </section>
+
+
+    <section id="projects" class="min-h-screen bg-gray-800 flex flex-col items-center justify-center gap-12 px-6 py-16">
+      <div class="text-center space-y-2">
+        <div
+          class="tag inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-sm text-white text-sm font-medium shadow-3d">
+          <div class="relative flex items-center gap-3">
+
+            <!-- Active dot -->
+            <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+            <div>
+              <span class="text-white/80">Recent Pojects</span>
+            </div>
+          </div>
+        </div>
+        <h2 class="text-4xl font-bold text-white" style="font-family: 'Satoshi', sans-serif;">
+          Handcrafted Ideas, <span class="text-gray-300">Brought to Life</span>
+        </h2>
+        <p class="text-gray-400 text-lg max-w-xl mx-auto" style="font-family: 'Satoshi', sans-serif;">
+          Creative projects blending code, design, and motion.
+        </p>
+      </div>
+
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-6xl card-group relative">
+
+        <!-- Project Card -->
+        <div class="relative">
+
+          <div class="bs-card p-6 rounded-xl project-card transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div class="flex justify-end mb-4">
+                <div
+                  class="top-3 right-4 text-sm nm-card text-white font-semibold rounded-full w-8 h-8 flex items-center justify-center shadow-md z-10">
+                  1
+                </div>
+              </div>
+
+              <!-- Project Image -->
+              <img src="./assets/img/project1.png" alt="Project preview"
+                class="w-full h-40 object-cover rounded-lg mb-4">
+
+              <div class="bs-card-sm flex gap-2 text-sm mb-4 flex-wrap">
+                <span>JavaScript</span>
+                <span>CSS</span>
+                <span>HTML</span>
+                <span>PHP</span>
+              </div>
+            </div>
+            <div class="mt-6 self-start project-footer">
+              <a href="./projects.html">
+                <span class="project-arrow">➤</span>
+                <span class="project-label">View Project</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="relative">
+
+          <div class="bs-card p-6 rounded-xl project-card transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div class="flex justify-end mb-4">
+                <div
+                  class="top-3 right-4 text-sm nm-card text-white font-semibold rounded-full w-8 h-8 flex items-center justify-center shadow-md z-10">
+                  2
+                </div>
+              </div>
+
+              <!-- Project Image -->
+              <img src="./assets/img/project2.png" alt="Another Project preview"
+                class="w-full h-40 object-cover rounded-lg mb-4">
+
+              <div class="bs-card-sm flex gap-2 text-sm mb-4 flex-wrap">
+                <span>WordPress</span>
+                <span>WooCommerce</span>
+              </div>
+            </div>
+            <div class="mt-6 self-start project-footer">
+              <a href="./projects.html">
+                <span class="project-arrow">➤</span>
+                <span class="project-label">View Project</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="relative">
+
+          <div class="bs-card p-6 rounded-xl project-card transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div class="flex justify-end mb-4">
+                <div
+                  class="top-3 right-4 text-sm nm-card text-white font-semibold rounded-full w-8 h-8 flex items-center justify-center shadow-md z-10">
+                  3
+                </div>
+              </div>
+
+              <!-- Project Image -->
+              <img src="./assets/img/project3.png" alt="Final Project preview"
+                class="w-full h-40 object-cover rounded-lg mb-4">
+              <div class="bs-card-sm flex gap-2 text-sm mb-4 flex-wrap">
+                <span>React</span>
+                <span>PHP</span>
+                <span>HTML</span>
+              </div>
+            </div>
+            <div class="mt-6 self-start project-footer">
+              <a href="./projects.html">
+                <span class="project-arrow">➤</span>
+                <span class="project-label">View Project</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="mt-12 text-center">
+        <a href="./projects.html"
+          class="inline-block px-6 py-3 rounded-full bt-card-2 text-black font-semibold hover:bg-gray-200 hover:scale-105 transition-transform duration-300">
+          View All Projects
+        </a>
+      </div>
+    </section>
+
+    <section id="why-choose-me" class="py-20 bg-black text-white px-6">
+      <div class="max-w-5xl mx-auto text-center">
+        <div
+          class="tag inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-sm text-white text-sm font-medium shadow-3d">
+          <div class="relative flex items-center gap-3">
+
+            <!-- Active dot -->
+            <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+            <div>
+              <span class="text-white/80">Why Choose Me?</span>
+            </div>
+          </div>
+        </div>
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 tracking-tight neon-glow">Reasons to Hire Me</h2>
+        <p class="text-lg text-gray-300 mb-12 max-w-2xl mx-auto" style="font-family: 'Satoshi', sans-serif;">
+          I craft fast, responsive websites using modern frontend and WordPress.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-8 text-left">
+          <!-- Card 1 -->
+          <!-- Card 1 -->
+          <div class="sm-card p-10 rounded-xl hover:scale-105 transition-transform">
+            <div
+              class="bg-white/10 w-12 h-12 rounded-full flex items-center justify-center mb-4 group-hover:bg-white/20 transition">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" viewBox="0 0 24 24">
+                <path d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-white flex items-center gap-2">
+
+              Speed & Performance
+            </h3>
+            <p class="text-gray-300 text-sm">
+              Every line of code is written with speed in mind—your site loads fast and runs smoothly on all devices.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="sm-card p-10 rounded-xl hover:scale-105 transition-transform">
+            <div
+              class="bg-white/10 w-12 h-12 rounded-full flex items-center justify-center mb-4 group-hover:bg-white/20 transition">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" viewBox="0 0 24 24">
+                <path d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-white flex items-center gap-2">
+
+              Custom Solutions
+            </h3>
+            <p class="text-gray-300 text-sm">
+              Whether it’s a unique frontend UI or a dynamic WordPress setup, I build to match your brand and audience.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="sm-card p-10 rounded-xl hover:scale-105 transition-transform">
+            <div
+              class="bg-white/10 w-12 h-12 rounded-full flex items-center justify-center mb-4 group-hover:bg-white/20 transition">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" viewBox="0 0 24 24">
+                <path d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-white flex items-center gap-2">
+
+              Affordable Pricing
+            </h3>
+            <p class="text-gray-300 text-sm">
+              Tailored for Nigerian startups and individuals — high quality doesn’t have to break the bank.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="py-24 bg-[#0d0d0d] text-white px-6">
+      <div class="max-w-6xl mx-auto text-center">
+        <div class="max-w-6xl mx-auto mb-16">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+            <!-- Center: Title + Paragraph -->
+            <div class="text-center md:text-left flex-1">
+              <!-- Tag -->
+              <div
+                class="tag inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-sm text-white text-sm font-medium shadow-3d">
+                <div class="relative flex items-center gap-3">
+                  <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+                  <div><span class="text-white/80">Services</span></div>
+                </div>
+              </div>
+              <h2 class="text-4xl md:text-5xl font-bold mb-2">Services I Offer</h2>
+              <p class="text-lg text-white/70" style="font-family: 'Satoshi', sans-serif;">
+                I craft fast, custom websites using WordPress and modern frontend tools.
+              </p>
+            </div>
+
+            <!-- Right: Contact Button -->
+            <div class="flex justify-center md:justify-end">
+              <a href="#contact"
+                class="inline-block px-5 py-3 rounded-full bt-card-2 text-black font-semibold hover:scale-105 transition-transform duration-300">
+                Contact Me
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="grid md:grid-cols-2 gap-10">
+          <!-- LEFT: Large Card -->
+          <div
+            class="bs-card group text-left flex flex-col h-full rounded-3xl p-6 md:row-span-2 hover:shadow-[0_8px_40px_rgba(0,0,0,0.5)] transition-all duration-300">
+            <span class="top-4 left-4 text-sm text-white/20 font-semibold">01</span>
+            <h3 class="text-2xl font-semibold text-white mb-4 mt-8">
+              Frontend Development
+            </h3>
+            <p class="text-sm leading-relaxed text-white/70">
+              Clean, responsive user interfaces built with HTML, CSS, JS, Tailwind, and React — designed for performance
+              and beauty.
+            </p>
+            <div class="mt-6 h-40 w-full bg-cover bg-center rounded-lg flex-grow"
+              style="background-image: url('./assets/img/temp1.avif');"></div>
+          </div>
+
+          <!-- RIGHT: Top Card -->
+          <div
+            class="bs-card group text-left relative flex flex-col h-full rounded-3xl p-6 hover:shadow-[0_8px_40px_rgba(0,0,0,0.5)] transition-all duration-300">
+            <span class="top-4 left-4 text-sm text-white/20 font-semibold">02</span>
+            <h3 class="text-2xl font-semibold text-white mb-4 mt-8">
+              Logo Design
+            </h3>
+            <p class="text-sm leading-relaxed flex-grow text-white/70">
+              Custom, scalable logos that reflect your brand’s identity and leave a lasting impression.
+            </p>
+          </div>
+
+          <!-- RIGHT: Bottom Card -->
+          <div
+            class="bs-card group text-left relative flex flex-col h-full rounded-3xl p-6 hover:shadow-[0_8px_40px_rgba(0,0,0,0.5)] transition-all duration-300">
+            <span class="top-4 left-4 text-sm text-white/20 font-semibold">03</span>
+            <h3 class="text-2xl font-semibold text-white mb-4 mt-8">
+              WordPress Websites
+            </h3>
+            <p class="text-sm leading-relaxed text-white/70">
+              Custom WordPress themes, plugins, and websites — easy to manage, fast to load, and made for Nigerian
+              businesses.
+            </p>
+            <div class="mt-6 h-40 w-full bg-cover bg-center rounded-lg flex-grow"
+              style="background-image: url('./assets/img/temp1.avif');"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="projects-summary" class="my-20 px-6 shadow-3d ">
+      <div class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="stat-box">
+          <h3 class="stat-number">5+</h3>
+          <p class="stat-label">Projects Completed</p>
+        </div>
+        <div class="stat-box">
+          <h3 class="stat-number">3</h3>
+          <p class="stat-label">Clients Served</p>
+        </div>
+        <div class="stat-box">
+          <h3 class="stat-number">4</h3>
+          <p class="stat-label">Years Experience</p>
+        </div>
+        <div class="stat-box">
+          <h3 class="stat-number">98%</h3>
+          <p class="stat-label">Client Satisfaction</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews" class="py-20 px-6">
+      <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-4xl font-bold text-white mb-4" style="font-family: 'Satoshi', sans-serif;">
+          What Clients Say
+        </h2>
+        <p class="text-gray-400 text-lg mb-12" style="font-family: 'Satoshi', sans-serif;">
+          Genuine feedback from happy collaborators and clients.
+        </p>
+
+        <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+
+          <!-- Review Card 1 -->
+          <div class="review-card backdrop-blur-lg rounded-xl p-6 hover:scale-[1.02] transition-transform">
+            <div class="flex items-center gap-4 mb-4">
+              <img src="https://i.pravatar.cc/100?img=1" alt="Reviewer"
+                class="w-12 h-12 rounded-full border-2 border-white/20" />
+              <div>
+                <h4 class="text-white font-semibold">Chidera Odozi</h4>
+                <p class="text-sm text-gray-400">Founder, NaijaTech</p>
+              </div>
+            </div>
+            <!-- Star Rating -->
+            <div class="flex items-center gap-1 text-yellow-400 mb-3">
+              <!-- 5 filled stars -->
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.564-.955L10 0l2.948 5.955 6.564.955-4.756 4.635 1.122 6.545z" />
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.564-.955L10 0l2.948 5.955 6.564.955-4.756 4.635 1.122 6.545z" />
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.564-.955L10 0l2.948 5.955 6.564.955-4.756 4.635 1.122 6.545z" />
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.564-.955L10 0l2.948 5.955 6.564.955-4.756 4.635 1.122 6.545z" />
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.564-.955L10 0l2.948 5.955 6.564.955-4.756 4.635 1.122 6.545z" />
+              </svg>
+            </div>
+            <p class="text-gray-300 text-left text-sm leading-relaxed">
+              “Absolutely blown away by the quality of work. Fast, efficient, and always professional. Our site now runs
+              10x faster!”
+            </p>
+          </div>
+
+          <!-- Review Card 2 -->
+          <div class="review-card backdrop-blur-lg rounded-xl p-6 hover:scale-[1.02] transition-transform">
+            <div class="flex items-center gap-4 mb-4">
+              <img src="https://i.pravatar.cc/100?img=2" alt="Reviewer"
+                class="w-12 h-12 rounded-full border-2 border-white/20" />
+              <div>
+                <h4 class="text-white font-semibold">Amaka Onu</h4>
+                <p class="text-sm text-gray-400">Creative Director</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-1 text-yellow-400 mb-3">
+              <!-- 5 stars -->
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.564-.955L10 0l2.948 5.955 6.564.955-4.756 4.635 1.122 6.545z" />
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.564-.955L10 0l2.948 5.955 6.564.955-4.756 4.635 1.122 6.545z" />
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.564-.955L10 0l2.948 5.955 6.564.955-4.756 4.635 1.122 6.545z" />
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.564-.955L10 0l2.948 5.955 6.564.955-4.756 4.635 1.122 6.545z" />
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.564-.955L10 0l2.948 5.955 6.564.955-4.756 4.635 1.122 6.545z" />
+              </svg>
+            </div>
+            <p class="text-gray-300 text-left text-sm leading-relaxed">
+              “From concept to execution, every detail was handled with creativity and precision. Highly recommended!”
+            </p>
+          </div>
+
+          <!-- Review Card 3 -->
+          <div class="review-card backdrop-blur-lg rounded-xl p-6 hover:scale-[1.02] transition-transform">
+            <div class="flex items-center gap-4 mb-4">
+              <img src="https://i.pravatar.cc/100?img=3" alt="Reviewer"
+                class="w-12 h-12 rounded-full border-2 border-white/20" />
+              <div>
+                <h4 class="text-white font-semibold">Tolu Ayinde</h4>
+                <p class="text-sm text-gray-400">Startup Owner</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-1 text-yellow-400 mb-3">
+              <!-- 5 stars -->
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.564-.955L10 0l2.948 5.955 6.564.955-4.756 4.635 1.122 6.545z" />
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.564-.955L10 0l2.948 5.955 6.564.955-4.756 4.635 1.122 6.545z" />
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.564-.955L10 0l2.948 5.955 6.564.955-4.756 4.635 1.122 6.545z" />
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.564-.955L10 0l2.948 5.955 6.564.955-4.756 4.635 1.122 6.545z" />
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.564-.955L10 0l2.948 5.955 6.564.955-4.756 4.635 1.122 6.545z" />
+              </svg>
+            </div>
+            <p class="text-gray-300 text-left text-sm leading-relaxed">
+              “Clean code, beautiful UI, and a developer who actually listens. Working with you was a breeze!”
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <section id="contact" class="min-h-screen flex flex-col items-center justify-center text-white p-8">
+      <div
+        class="tag inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-sm text-white text-sm font-medium shadow-3d">
+        <div class="relative flex items-center gap-3">
+
+          <!-- Active dot -->
+          <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+          <div>
+            <span class="text-white/80">Let's connect</span>
+          </div>
+        </div>
+      </div>
+      <h2 class="text-5xl font-extrabold mb-6 tracking-wide neon-glow">Together, <span class="text-gray-300">we Achieve
+          More</span></h2>
+      <p class="mb-10 text-lg max-w-xl mx-auto opacity-80" style="font-family: 'Satoshi', sans-serif;">
+        Need a website that stands out? Whether it's a modern frontend or a sleek WordPress setup, I offer affordable
+        pricing for Nigerian clients. Let’s bring your idea to life.
+      </p>
+      <!-- Contact Me Button -->
+      <a href="mailto:chiderajhesse55@gmail.com"
+        class="inline-block px-6 py-3 bt-card-2 text-black font-semibold rounded-full button-shadow hover:bg-black transition-colors hover:scale-105 transition-transform duration-300"
+        style="font-family: 'Satoshi', sans-serif;">
+        Contact Me
+      </a>
+
+    </section>
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn"
+      class="fixed bottom-6 right-6 hidden p-3 rounded-full bg-white text-black shadow-lg hover:scale-110 transition-transform duration-300 z-50"
+      aria-label="Scroll to top">
+      ↑
+    </button>
+
+    <footer class="text-white py-12 px-6">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+
+        <!-- Logo or Name -->
+        <div class="text-2xl font-bold tracking-wide">Odozi <span class="text-grey-300">Chidera</span></div>
+
+        <!-- Navigation Links (optional) -->
+        <ul class="flex gap-6 text-sm font-medium text-white/80">
+          <li><a href="#home" class="hover:text-white transition">Home</a></li>
+          <li><a href="#about" class="hover:text-white transition">About</a></li>
+          <li><a href="#projects" class="hover:text-white transition">Projects</a></li>
+          <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+        </ul>
+
+        <!-- Social Icons -->
+        <div class="flex gap-4">
+          <!-- Facebook -->
+          <a href="https://facebook.com" target="_blank"
+            class="w-10 h-10 text-white hover:text-[#1877F2] flex items-center justify-center transition-all duration-300"
+            aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f text-xl"></i>
+          </a>
+
+          <!-- X (Twitter) -->
+          <a href="https://x.com" target="_blank"
+            class="w-10 h-10 text-white hover:text-white flex items-center justify-center transition-all duration-300"
+            aria-label="X (Twitter)">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M20.99 4.34h-3.13l-4.01 4.85-4.24-4.85H2l7.59 8.9L2.29 21h3.12l4.07-4.91 4.3 4.91H22l-7.89-9.24L20.99 4.34z" />
+            </svg>
+          </a>
+
+          <!-- Instagram -->
+          <a href="https://instagram.com" target="_blank"
+            class="w-10 h-10 text-white hover:text-pink-500 flex items-center justify-center transition-all duration-300"
+            aria-label="Instagram">
+            <i class="fa-brands fa-instagram text-xl"></i>
+          </a>
+
+          <!-- LinkedIn -->
+          <a href="https://linkedin.com" target="_blank"
+            class="w-10 h-10 text-white hover:text-[#0077B5] flex items-center justify-center transition-all duration-300"
+            aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in text-xl"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Bottom Line -->
+      <div class="mt-8 text-center text-sm text-white/50">
+        © <span id="year"></span> Odozi Chidera. All rights reserved.
+      </div>
+
+
+
+    </footer>
+
+
+  </main>
+  <div class="bottom-blur"></div>
+  <!-- Scripts -->
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/smooth-scrollbar@8.7.4/dist/smooth-scrollbar.js"></script>
+  <script src="./assets/js/main.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+
+</body>
+
+</html>
